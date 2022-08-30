@@ -2,7 +2,8 @@ name: build and deploy react app for gsoc doc
 
 on:
   push:
-    branches: [ "gsoc" ]
+    branches: 
+    - gsoc
 
 jobs:
   build:
