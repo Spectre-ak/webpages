@@ -1,5 +1,6 @@
 {
   "name": "gsoc-doc",
+  "homepage": "https://spectre-ak.github.io/gsoc",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
