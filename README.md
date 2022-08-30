@@ -1,1 +1,1 @@
-# Contains webpages of the repo
+# src for gsoc web page
