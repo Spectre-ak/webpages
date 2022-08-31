@@ -25,3 +25,7 @@ fetch('https://api.ipgeolocation.io/ipgeo?apiKey=8df80aebf97f48a28074e211e4c348c
 console.log(process.env)
 
 console.log(process.env.repository)
+// see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+
+console.log(process.env)
+

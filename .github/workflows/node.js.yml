@@ -25,6 +25,13 @@ jobs:
     - name: Install dependencies
       working-directory: ./gsoc-doc
       run: npm install
+      
+    - name: Create env file
+      working-directory: ./gsoc-doc
+      run: |
+        touch .env
+        echo REACT_APP_S3_BUCKET="YOURS3BUCKET" >> .env
+        echo REACT_APP_SECRET_KEY="YOURSECRETKEYGOESHERE" >> .env
 
     - name: Build
       working-directory: ./gsoc-doc
@@ -42,3 +49,5 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
+    
+
