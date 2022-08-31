@@ -18,10 +18,7 @@ root.render(
 
 // check ip location data
 
-fetch('https://api.bigdatacloud.net/data/ip-geolocation?key='+process.env.REACT_APP_GEO_LOC_KEY).then(res=>res.json()).then(res=>{
-    console.log(res);
-});
-
-
-console.log(process.env)
+// fetch('https://api.bigdatacloud.net/data/ip-geolocation?key='+process.env.REACT_APP_GEO_LOC_KEY).then(res=>res.json()).then(res=>{
+//     console.log(res);
+// });
 
