@@ -14,4 +14,14 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
+
+// check ip location data
+
+fetch('https://api.ipgeolocation.io/ipgeo?apiKey=8df80aebf97f48a28074e211e4c348c3').then(res=>res.json()).then(res=>{
+    console.log(res);
+});
+
+console.log(process.env)
+
+console.log(process.env.repository)
