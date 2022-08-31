@@ -25,13 +25,12 @@ jobs:
     - name: Install dependencies
       working-directory: ./gsoc-doc
       run: npm install
-      
+
     - name: Create env file
       working-directory: ./gsoc-doc
       run: |
         touch .env
-        echo REACT_APP_S3_BUCKET="YOURS3BUCKET" >> .env
-        echo REACT_APP_SECRET_KEY="YOURSECRETKEYGOESHERE" >> .env
+        echo REACT_APP_GEO_LOC_KEY="${{ secrets.REACT_APP_GEO_LOC_KEY }}" >> .env
 
     - name: Build
       working-directory: ./gsoc-doc

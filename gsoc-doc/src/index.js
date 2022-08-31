@@ -18,14 +18,10 @@ root.render(
 
 // check ip location data
 
-fetch('https://api.ipgeolocation.io/ipgeo?apiKey=8df80aebf97f48a28074e211e4c348c3').then(res=>res.json()).then(res=>{
+fetch('https://api.bigdatacloud.net/data/ip-geolocation?key=bdc_a990f0404a8a4ea68bc65bc27248ed46').then(res=>res.json()).then(res=>{
     console.log(res);
 });
 
-console.log(process.env)
-
-console.log(process.env.repository)
-// see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 
 console.log(process.env)
 
