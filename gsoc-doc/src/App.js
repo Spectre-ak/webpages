@@ -18,47 +18,47 @@ function App() {
                       <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Home</a>
                       <ul className="collapse list-unstyled" id="homeSubmenu">
                           <li>
-                              <a href="#">Home 1</a>
+                              <a href="/">Home 1</a>
                           </li>
                           <li>
-                              <a href="#">Home 2</a>
+                              <a href="/">Home 2</a>
                           </li>
                           <li>
-                              <a href="#">Home 3</a>
+                              <a href="/">Home 3</a>
                           </li>
                       </ul>
                   </li>
                   <li>
-                      <a href="#">About</a>
+                      <a href="/">About</a>
                   </li>
                   <li>
                       <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Pages</a>
                       <ul className="collapse list-unstyled" id="pageSubmenu">
                           <li>
-                              <a href="#">Page 1</a>
+                              <a href="/">Page 1</a>
                           </li>
                           <li>
-                              <a href="#">Page 2</a>
+                              <a href="/">Page 2</a>
                           </li>
                           <li>
-                              <a href="#">Page 3</a>
+                              <a href="/">Page 3</a>
                           </li>
                       </ul>
                   </li>
                   <li>
-                      <a href="#">Portfolio</a>
+                      <a href="/">Portfolio</a>
                   </li>
                   <li>
-                      <a href="#">Contact</a>
+                      <a href="/">Contact</a>
                   </li>
               </ul>
 
               <ul className="list-unstyled CTAs">
                   <li>
-                      <a href="#" className="download">GSoC home page</a>
+                      <a href="/" className="download">GSoC home page</a>
                   </li>
                   <li>
-                      <a href="#" className="article">TVB Repo</a>
+                      <a href="/" className="article">TVB Repo</a>
                   </li>
               </ul>
           </nav>
@@ -80,16 +80,16 @@ function App() {
                       <div className="collapse navbar-collapse" id="navbarSupportedContent">
                           <ul className="nav navbar-nav ml-auto">
                               <li className="nav-item active">
-                                  <a className="nav-link" href="#">Github</a>
+                                  <a className="nav-link" href="/">Github</a>
                               </li>
                               <li className="nav-item">
-                                  <a className="nav-link" href="#">Linkedin</a>
+                                  <a className="nav-link" href="/">Linkedin</a>
                               </li>
                               <li className="nav-item">
-                                  <a className="nav-link" href="#">mail</a>
+                                  <a className="nav-link" href="/">mail</a>
                               </li>
                               <li className="nav-item">
-                                  <a className="nav-link" href="#">src</a>
+                                  <a className="nav-link" href="/">src</a>
                               </li>
                           </ul>
                       </div>
