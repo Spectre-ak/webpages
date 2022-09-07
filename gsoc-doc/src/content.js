@@ -170,6 +170,15 @@ function Content() {
                 <li>
                     Code documentation: <ViewCode content="README.md" href="https://github.com/Spectre-ak/tvb-root/blob/tvb-bids-monitoring-gsoc/tvb_framework/tvb/interfaces/rest/bids_monitoring/README.md" />
                 </li>
+                <li>
+                    Project page: <ViewCode content="Separate tool to upload data into TVB"  href="https://neurostars.org/t/gsoc-2022-project-idea-8-2-separate-tool-to-upload-data-into-tvb-175-350-h/21392"/>
+                </li>
+                <li>
+                    GSoC INCF page: <ViewCode content="INCF" href="https://summerofcode.withgoogle.com/programs/2022/organizations/incf"/>
+                </li>
+                <li>
+                    GSoC home page: <ViewCode content="summerofcode.withgoogle.com" href="https://summerofcode.withgoogle.com/"/>
+                </li>
             </ul>
         </div>
     )

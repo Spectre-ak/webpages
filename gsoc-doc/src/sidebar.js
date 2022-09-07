@@ -1,3 +1,5 @@
+const main_site_url = "https://spectre-ak.github.io/webpages/";
+
 function Sidebar() {
     return (
         <nav id="sidebar">
@@ -50,7 +52,7 @@ function TopNavbar() {
                     <i className="fas fa-align-left"></i>
                     <span></span>
                 </button>
-                <h4 onClick={() => window.location.href = "/"} style={{ cursor: "pointer" }}>TVB Data Importer</h4>
+                <h4 onClick={() => window.location.href = main_site_url} style={{ cursor: "pointer", paddingLeft: "0.6em"}}>TVB Data Importer</h4>
                 <button className="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i className="fas fa-align-justify"></i>
                 </button>

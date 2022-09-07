@@ -7,7 +7,10 @@ import { Sidebar } from './sidebar';
 function App() {
   useEffect(() => {
     const fragment = window.location.hash.substr(1);
-    document.getElementById(fragment+"-link").click();
+    try{
+      document.getElementById(fragment + "-link").click();
+    } catch(err){}
+    
   }, []);
 
   return (
@@ -17,7 +20,6 @@ function App() {
         <Sidebar />
         <Content />
       </div>
-
 
     </div>
   );
