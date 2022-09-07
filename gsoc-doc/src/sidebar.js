@@ -75,16 +75,16 @@ function TopNavbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="nav navbar-nav ml-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="/">Github</a>
+                            <a className="nav-link" href="https://github.com/Spectre-ak">Github</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Linkedin</a>
+                            <a className="nav-link" href="https://www.linkedin.com/in/akash-upadhyay-a565271ba/">Linkedin</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">mail</a>
+                            <a className="nav-link" href="mailto:upadhyayakash2002@gmail.com">Email</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">src</a>
+                            <a className="nav-link" href="https://github.com/Spectre-ak/webpages">Source</a>
                         </li>
                     </ul>
                 </div>
