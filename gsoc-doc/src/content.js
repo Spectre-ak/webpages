@@ -54,25 +54,20 @@ function Content() {
                 and datatype of which dataset is to be built. <CodeText txt="BIDSDataBuilder" /> can also build dataset from a
                 set of intial json files. And the result is a zip file containing the built dataset. </p>
             <p> <ViewCode href="https://github.com/the-virtual-brain/tvb-root/pull/589/files#diff-0429214335d934a9229899b195e39d0e81459c9524d372521ca3982c58170398" content="View BIDSDataBuilder" /></p>
+            
             <div className="line"></div>
 
             <h3>Milestone 3 - Creating BIDS Diretory monitor</h3>
-            {/* third phaseA+
-                yeh milestone 2 me jo bids data builder bana hai usko base leke bana haii,
-                challenges jo jo aaya wo sab dal yaha pe bhaiii,
-                1. using proper library for watching,
-                1.5 using background and threds to handle two workers...
-                2. writing code to detect changes in the subject directories only and rest discard them
-                3. */}
             <p>
                 After building <CodeText txt="BIDSDataBuilder" /> our next goal was to wtite a separate module for observing
-                or monitoring a BIDS directory for new files and whenever new files are added then consume <CodeText txt="BIDSDataBuilder" />
-                to build a dataset for those files and import them into TVB project. So we splitted this this module into two parts
-                <ul>
-                    <li>Watcher - Responsible for monitoring the directories and triggering uploader on new files</li>
-                    <li>Uploader - Responsible for building the dataset for new files and importing the dataset into TVB project</li>
-                </ul>
+                or monitoring a BIDS directory for new files and whenever new files are added then consume <CodeText txt="BIDSDataBuilder " />
+                to build a dataset for those files and import them into TVB project. 
             </p>
+            <p>So we splitted this this module into two parts</p>
+            <ul>
+                <li>Watcher - Responsible for monitoring the directories and triggering uploader on new files</li>
+                <li>Uploader - Responsible for building the dataset for new files and importing the dataset into TVB project</li>
+            </ul>
             <p>Challenges: </p>
             <ul>
                 <li>
@@ -86,28 +81,60 @@ function Content() {
                 </li>
                 <li>
                     Running background processes
-                    <ul><li>We needed the Watcher to run in the background and not blocking other processes and similary
+                    <ul><li>We needed the watcher to run in the background and not blocking other processes and similary
                         we needed the uploader to also run in the background. To resolve this we created two parallel threads
-                        namely watcher_thread and uploader_thread.</li></ul>
+                        namely <ViewCode href="https://github.com/Spectre-ak/tvb-root/blob/fce15765cc83fb6ead67568b0c5677227b6e26b5/tvb_framework/tvb/interfaces/rest/bids_monitoring/bids_dir_monitor.py#L98" content="watcher_thread"/> and <ViewCode href="https://github.com/Spectre-ak/tvb-root/blob/fce15765cc83fb6ead67568b0c5677227b6e26b5/tvb_framework/tvb/interfaces/rest/bids_monitoring/bids_dir_monitor.py#L99" content="uploader_thread"/>.</li></ul>
                 </li>
             </ul>
-            <h3>Milestone 4 - Tesdting the module</h3>
             <p>
-                {/* 4th phase
-                yaha pe dalne hai ki module ko humne test kara and problem aaya
-                bids importer me, so usko waps update krna pada
-                paula ko code id dal dena
-                added  sample code to show how to use */}
+                Final Outcome: <CodeText txt="BIDSDirWatcher"/> class which takes BIDS directory as argument and monitors 
+                that directory for new files. It also takes additional arguments such as tvb project id in which data will
+                be imported.
 
             </p>
 
-            By this part we have our bidsdatabuilder and bidsDIrwarcher are ready and tested
+            <div className="line"></div>
 
+            <h3>Milestone 4 - Testing</h3>
+            <p>
+                Now that we have <CodeText txt="BIDSDirWatcher"/> and <CodeText txt="BIDSDataBuilder" /> as a next step we need
+                to test the module properly.
+            </p>
+            <p>Challenges</p>
+            <ul>
+                <li>
+                    While testing <CodeText txt="BIDSDirWatcher"/> we found a bug in the <ViewCode href="https://github.com/the-virtual-brain/tvb-root/blob/a2181bad1c318e9e49a6d6ffcc18f4f2e112164c/tvb_framework/tvb/adapters/uploaders/bids_importer.py#L124" content="BIDSImporter"/> and
+                    because of this the import was not successful. The BIDSImporter was not able to extract the subject folders
+                    from the file paths present in a bids zip file. To resolve this we splitted the path in different manner and
+                    cheked again if it's a subject directory.
+                </li>
+            </ul>
+            
+            <p>Final Outcome: By this part we have our <CodeText txt="BIDSDirWatcher"/> and <CodeText txt="BIDSDataBuilder" /> ready and tested.
+            Also added a sample file <ViewCode href="https://github.com/Spectre-ak/tvb-root/blob/tvb-bids-monitoring-gsoc/tvb_framework/tvb/interfaces/rest/bids_monitoring/launch_bids_monitor.py" content="launch_bids_monitor.py"/> for demonstrating how to consume the module. This file can also be used to run BIDSDirWatcher on a directory by passing it as command line arguments.
+            </p>
+
+            <div className="line"></div>
 
             <h3>Milestone 5 - Packaging the code</h3>
-            <p>5th phase
+            <p>
+                This is last stage of the projet which inlcludes packaging the whole code with all dependencies so that it can be installed easily.
             </p>
+            <p>So added follwing things</p>
+            <ul>
+                <li>
+                    <ViewCode content="setup_bids_monitor.py" href="https://github.com/Spectre-ak/tvb-root/blob/tvb-bids-monitoring-gsoc/tvb_framework/setup_bids_monitor.py"/>
+                </li>
+                <li>
+                    <ViewCode content="MANIFEST" href="https://github.com/Spectre-ak/tvb-root/blob/tvb-bids-monitoring-gsoc/tvb_framework/MANIFEST_bids_monitor.in"/>
+                </li>
+                <li>
+                    Code documentation <ViewCode content="Readme" href="https://github.com/Spectre-ak/tvb-root/blob/tvb-bids-monitoring-gsoc/tvb_framework/tvb/interfaces/rest/bids_monitoring/README.md"/>
+                </li>
+            </ul>
 
+
+            <div className="line"></div>
 
         </div>
     )
