@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -45,7 +46,8 @@ body {
   background: #fafafa;
 }
 
-p, li {
+p,
+li {
   font-size: 1.1em;
   font-weight: 300;
   line-height: 1.7em;
@@ -200,19 +202,23 @@ a.article:hover {
 
 @media (max-width: 768px) {
   #sidebar {
-      margin-left: -250px;
+    margin-left: -250px;
   }
+
   #sidebar.active {
-      margin-left: 0;
+    margin-left: 0;
   }
+
   #content {
-      width: 100%;
+    width: 100%;
   }
+
   #content.active {
-      width: calc(100% - 250px);
+    width: calc(100% - 250px);
   }
+
   #sidebarCollapse {
-      display: block!important;
+    display: block !important;
   }
 }
 
@@ -223,4 +229,27 @@ a.article:hover {
 .content-header:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+
+::-webkit-scrollbar {
+  width: 11.5px;
+  height: 7px;
+  border-radius: 50px;
+  background-blend-mode: darken
+}
+
+::-webkit-scrollbar-track {
+  background: #151515;
+  /* border-radius: 10px */
+}
+
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+  background: rgb(213 206 206 / 30%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d7fcc
 }
