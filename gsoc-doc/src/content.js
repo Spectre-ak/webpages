@@ -4,7 +4,7 @@ function ViewCode(props) {
     let content = props.content;
     if (content === undefined) content = " View File/Commit";
     return (
-        <a href={props.href}>{content}</a>
+        <a href={props.href} target={"_blank"} rel="noreferrer">{content}</a>
     )
 }
 
@@ -21,7 +21,7 @@ function getEle(id) {
 function GetHeader(props) {
     return (
         <div>
-            <h4 id={props.id} className={"content-header"} onClick={() => { getEle(props.id + "-link").click() }}>{props.heading}</h4>
+            <h5 id={props.id} className={"content-header"} onClick={() => { getEle(props.id + "-link").click() }}>{props.heading}</h5>
             <a id={props.id + "-link"} name={props.id} href={"#" + props.id}>{ }</a>
         </div>
     )
@@ -180,6 +180,8 @@ function Content() {
                     GSoC home page: <ViewCode content="summerofcode.withgoogle.com" href="https://summerofcode.withgoogle.com/"/>
                 </li>
             </ul>
+
+            <div className="line"></div>
         </div>
     )
 }

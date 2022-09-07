@@ -253,3 +253,7 @@ a.article:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #6d7fcc
 }
+
+div#content a {
+  color: #6d7fcc;
+}
