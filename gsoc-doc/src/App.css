@@ -219,3 +219,8 @@ a.article:hover {
 #sidebarCollapse {
   display: none;
 }
+
+.content-header:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
