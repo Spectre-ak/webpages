@@ -6,43 +6,26 @@ function Sidebar() {
             </div>
 
             <ul className="list-unstyled components">
-                <p>Dummy Heading</p>
-                <li className="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Home</a>
-                    <ul className="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="/">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="/">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="/">Home 3</a>
-                        </li>
-                    </ul>
+                <li>
+                    <a href="#project-description">Project Description</a>
                 </li>
                 <li>
-                    <a href="/">About</a>
+                    <a href="#update-bids-importer">Milestone 1</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Pages</a>
-                    <ul className="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="/">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="/">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="/">Page 3</a>
-                        </li>
-                    </ul>
+                    <a href="#bids-data-builder">Milestone 2</a>
                 </li>
                 <li>
-                    <a href="/">Portfolio</a>
+                    <a href="#bids-dir-watcher">Milestone 3</a>
                 </li>
                 <li>
-                    <a href="/">Contact</a>
+                    <a href="#testing">Milestone 4</a>
+                </li>
+                <li>
+                    <a href="#code-packaging">Milestone 5</a>
+                </li>
+                <li>
+                    <a href="#links">PR & Links</a>
                 </li>
             </ul>
 
@@ -67,7 +50,7 @@ function TopNavbar() {
                     <i className="fas fa-align-left"></i>
                     <span></span>
                 </button>
-                <h4>TVB Data Importer</h4>
+                <h4 onClick={() => window.location.href = "/"} style={{ cursor: "pointer" }}>TVB Data Importer</h4>
                 <button className="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i className="fas fa-align-justify"></i>
                 </button>
