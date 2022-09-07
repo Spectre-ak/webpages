@@ -31,10 +31,10 @@ function Sidebar() {
 
             <ul className="list-unstyled CTAs">
                 <li>
-                    <a href="/" className="download">GSoC home page</a>
+                    <a href="https://summerofcode.withgoogle.com/proposals/details/J3oUaKEq" className="download">GSoC project page</a>
                 </li>
                 <li>
-                    <a href="/" className="article">TVB Repo</a>
+                    <a href="https://github.com/the-virtual-brain/tvb-root/pull/589" className="article">the-virtual-brain/tvb-root</a>
                 </li>
             </ul>
         </nav>
