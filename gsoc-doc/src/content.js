@@ -32,18 +32,20 @@ function Content() {
         <div id="content">
             <TopNavbar />
 
+            <p>Date: <i>8th Sep 2022</i></p>
+            <p>Contributor: <ViewCode content="@Akash Upadhyay" href="https://github.com/Spectre-ak"/></p>
+            <p>Mentors: <ViewCode content="@Paula Popa" href="https://github.com/popaula937" /> & <ViewCode content="@Lia Domide" href="https://github.com/liadomide" /></p>
+            
+            <br/>
             <GetHeader id="project-description" heading="Project Description" />
 
             <p>The Virtual Brain (TVB) is a brain stimulation platform. It offers tools for computing, simulating and analyzing functional and structural data of human brains. TVB provides a graphical user interface (GUI) for using its tools for studying human brains. The platform supports importing data into TVB like projects, data structures etc. Since TVB provides various tools for studying human brains the platform is also accessible through REST APIs. Goal of this project is to create a new package which will consume TVB REST services and perform operations on it. The new python client will have features like uploading data into a TVB, data encryption and validation, build BIDS datasets, monitor directories etc. Users will be able to use this python client to interact with a remote TVB server without using an active GUI.</p>
 
-            <p>Contributor: <ViewCode content="@Akash Upadhyay" href="https://github.com/Spectre-ak"/></p>
-
-            <p>Mentors: <ViewCode content="@Paula Popa" href="https://github.com/popaula937" /> & <ViewCode content="@Lia Domide" href="https://github.com/liadomide" /></p>
             <div className="line"></div>
 
             <GetHeader id="update-bids-importer" heading="Milestone 1 - Update BIDS Importer" />
             <p>
-                In this phase we started working on updating the BIDS Importer. BIDS impoter is used to import bids datasets into TVB projcts.
+                In this phase we started working on updating the BIDS Importer. BIDS importer is used to import bids datasets into TVB projects.
                 Goal was to modify the bids importer so that it will also support bids datasets with only single datatype (ts, net, coords, spatial). We're able to achieve this and we also tested the updated bids importer with BIDS datasets containing only time series or connectivity datatypes.
             </p>
             <p>
@@ -59,27 +61,26 @@ function Content() {
             </p>
             <p>Few challenges we faced</p>
             <ul>
-                <li>How do we find all the dependencies from json files. There were cases when a json file contains path
-                    to another json file and so on.
+                <li>How do we find all the dependencies from json files? There are cases when a json file contains a path to another json file and so on.
                     <ul><li>So we came up with an approach similar to BFS traversal, since the connection(of dependencies paths)
-                        among json files was forming a graph like structure. View <ViewCode content="get_connected_dependencies_paths" href="https://github.com/Spectre-ak/tvb-root/blob/fce15765cc83fb6ead67568b0c5677227b6e26b5/tvb_framework/tvb/interfaces/rest/bids_monitoring/bids_data_builder.py#L89" /></li></ul>
+                        among json files was forming a graph-like structure. View <ViewCode content="get_connected_dependencies_paths" href="https://github.com/Spectre-ak/tvb-root/blob/fce15765cc83fb6ead67568b0c5677227b6e26b5/tvb_framework/tvb/interfaces/rest/bids_monitoring/bids_data_builder.py#L89" /></li></ul>
                 </li>
                 <li>Finding a way to write files into a zip file with all the directories/sub-directories being preserved.
-                    <ul><li>To resolve this we used <CodeText txt="ZipFile" /> which is already in used in TVB importers. View <ViewCode content="create_archive" href="https://github.com/Spectre-ak/tvb-root/blob/fce15765cc83fb6ead67568b0c5677227b6e26b5/tvb_framework/tvb/interfaces/rest/bids_monitoring/bids_data_builder.py#L53" /></li></ul>
+                    <ul><li>To resolve this we used <CodeText txt="ZipFile" /> which is already in use in TVB importers. View <ViewCode content="create_archive" href="https://github.com/Spectre-ak/tvb-root/blob/fce15765cc83fb6ead67568b0c5677227b6e26b5/tvb_framework/tvb/interfaces/rest/bids_monitoring/bids_data_builder.py#L53" /></li></ul>
                 </li>
             </ul>
             <p>Final Outcome: A class named <CodeText txt="BIDSDataBuilder" /> which takes BIDS root directory
-                and datatype of which dataset is to be built. <CodeText txt="BIDSDataBuilder" /> can also build dataset from a
-                set of intial json files. And the result is a zip file containing the built dataset. </p>
+                and datatype of which dataset is to be built. <CodeText txt="BIDSDataBuilder" /> can also build a dataset from a
+                set of initial json files. And the result is a zip file containing the built dataset. </p>
             <p> <ViewCode href="https://github.com/the-virtual-brain/tvb-root/pull/589/files#diff-0429214335d934a9229899b195e39d0e81459c9524d372521ca3982c58170398" content="View BIDSDataBuilder" /></p>
 
             <div className="line"></div>
 
-            <GetHeader id="bids-dir-watcher" heading="Milestone 3 - Creating BIDS Diretory monitor" />
+            <GetHeader id="bids-dir-watcher" heading="Milestone 3 - Creating BIDS Directory monitor" />
             <p>
-                After building <CodeText txt="BIDSDataBuilder" /> our next goal was to wtite a separate module for observing
+                After building <CodeText txt="BIDSDataBuilder" /> our next goal was to write a separate module for observing
                 or monitoring a BIDS directory for new files and whenever new files are added then consume <CodeText txt="BIDSDataBuilder " />
-                to build a dataset for those files and import them into TVB project.
+                to build a dataset for those files and import them into the TVB project.
             </p>
             <p>So we splitted this this module into two parts</p>
             <ul>
@@ -99,7 +100,7 @@ function Content() {
                 </li>
                 <li>
                     Running background processes
-                    <ul><li>We needed the watcher to run in the background and not blocking other processes and similary
+                    <ul><li>We needed the watcher to run in the background and not block other processes and similarly
                         we needed the uploader to also run in the background. To resolve this we created two parallel threads
                         namely <ViewCode href="https://github.com/Spectre-ak/tvb-root/blob/fce15765cc83fb6ead67568b0c5677227b6e26b5/tvb_framework/tvb/interfaces/rest/bids_monitoring/bids_dir_monitor.py#L98" content="watcher_thread" /> and <ViewCode href="https://github.com/Spectre-ak/tvb-root/blob/fce15765cc83fb6ead67568b0c5677227b6e26b5/tvb_framework/tvb/interfaces/rest/bids_monitoring/bids_dir_monitor.py#L99" content="uploader_thread" />.</li></ul>
                 </li>
@@ -125,7 +126,7 @@ function Content() {
                     While testing <CodeText txt="BIDSDirWatcher" /> we found a bug in the <ViewCode href="https://github.com/the-virtual-brain/tvb-root/blob/a2181bad1c318e9e49a6d6ffcc18f4f2e112164c/tvb_framework/tvb/adapters/uploaders/bids_importer.py#L124" content="BIDSImporter" /> and
                     because of this the import was not successful. The BIDSImporter was not able to extract the subject folders
                     from the file paths present in a bids zip file. To resolve this we splitted the path in different manner and
-                    cheked again if it's a subject directory.
+                    checked again if it's a subject directory.
                 </li>
             </ul>
 
@@ -137,9 +138,9 @@ function Content() {
 
             <GetHeader id="code-packaging" heading="Milestone 5 - Packaging the code" />
             <p>
-                This is last stage of the projet which inlcludes packaging the whole code with all dependencies so that it can be installed easily.
+                This is the last stage of the project which includes packaging the whole code with all dependencies so that it can be installed easily.
             </p>
-            <p>So added follwing things</p>
+            <p>So added following things</p>
             <ul>
                 <li>
                     <ViewCode content="setup_bids_monitor.py" href="https://github.com/Spectre-ak/tvb-root/blob/tvb-bids-monitoring-gsoc/tvb_framework/setup_bids_monitor.py" />
@@ -155,7 +156,7 @@ function Content() {
 
             <div className="line"></div>
 
-            <GetHeader heading="PRs and code repositries" id="links" />
+            <GetHeader heading="PRs and code repositories" id="links" />
 
             <ul>
                 <li>
