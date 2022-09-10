@@ -118,8 +118,16 @@ function Content() {
 
             <p>
                 Now that we have <CodeText txt="BIDSDirWatcher" /> and <CodeText txt="BIDSDataBuilder" /> as a next step we need
-                to test the module properly.
+                to test the module properly. During this phase we also added unit tests for bids data builder and dir watcher.
             </p>
+            <ul>
+                <li>
+                    <ViewCode content="TestBIDSDataBuilder" href="https://github.com/Spectre-ak/tvb-root/blob/tvb-bids-monitoring-gsoc/tvb_framework/tvb/tests/framework/interfaces/rest/bids_data_builder_test.py"/>
+                </li>
+                <li>
+                    <ViewCode content="TestBIDSDirWatcher" href="https://github.com/Spectre-ak/tvb-root/blob/tvb-bids-monitoring-gsoc/tvb_framework/tvb/tests/framework/interfaces/rest/bids_dir_monitor_test.py"/>
+                </li>
+            </ul>
             <p>Challenges</p>
             <ul>
                 <li>
